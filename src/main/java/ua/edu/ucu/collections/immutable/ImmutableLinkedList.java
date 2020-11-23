@@ -1,6 +1,5 @@
 package ua.edu.ucu.collections.immutable;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class ImmutableLinkedList implements ImmutableList {
@@ -13,8 +12,8 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     static class Node {
-        Object value;
-        Node next;
+        private Object value;
+        private Node next;
 
         private Node(Object value) {
             this.value = value;
@@ -67,7 +66,7 @@ public class ImmutableLinkedList implements ImmutableList {
     @Override
     public ImmutableLinkedList add(int index, Object e) {
         CheckBounds(index);
-        int res_index = 0;
+        int resIndex = 0;
         ImmutableLinkedList res = copy();
         Node reshead = res.head;
         if (reshead == null) {
@@ -81,14 +80,14 @@ public class ImmutableLinkedList implements ImmutableList {
             return result;
         }
         while (reshead != null) {
-            if (index - 1 == res_index) {
+            if (index - 1 == resIndex) {
                 Node cur = reshead.next;
                 reshead.next = new Node(e);
                 reshead = reshead.next;
                 reshead.next = cur;
             }
             reshead = reshead.next;
-            res_index++;
+            resIndex++;
         }
         res.size++;
         return res;
@@ -128,15 +127,15 @@ public class ImmutableLinkedList implements ImmutableList {
         CheckBounds(index);
         ImmutableLinkedList res = copy();
         Node reshead = res.head;
-        int res_index = 0;
+        int resIndex = 0;
         if (index == 0) {
             ImmutableLinkedList result = new ImmutableLinkedList(reshead.next);
             result.size = res.size - 1;
             return result;
         }
-        while (res_index != index - 1) {
+        while (resIndex != index - 1) {
             reshead = reshead.next;
-            res_index++;
+            resIndex++;
         }
         Node previous = reshead;
         previous.next = reshead.next.next;

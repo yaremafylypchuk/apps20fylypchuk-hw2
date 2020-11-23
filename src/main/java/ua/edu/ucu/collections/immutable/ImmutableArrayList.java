@@ -25,7 +25,8 @@ public class ImmutableArrayList implements ImmutableList {
         Object[] newArr = new Object[this.size() + 1];
         System.arraycopy(this.array, 0, newArr, 0, index);
         newArr[index] = e;
-        System.arraycopy(this.array, index, newArr, index + 1, this.size() - index);
+        System.arraycopy(this.array, index, newArr, index + 1,
+                this.size() - index);
         return new ImmutableArrayList(newArr);
     }
 
