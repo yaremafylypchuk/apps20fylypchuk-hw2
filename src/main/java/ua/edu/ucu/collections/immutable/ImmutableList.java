@@ -1,6 +1,6 @@
 package ua.edu.ucu.collections.immutable;
 
-// У результаті змін, що призводять на модифікації (зміну стану) колекції має повртатись нова колекція
+
 public interface ImmutableList {
 
     ImmutableList add(Object e);

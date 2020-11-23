@@ -107,5 +107,10 @@ public class ImmutableArrayListTest {
     public void testIsEmptyEmpty() {
         assertTrue(emptyList.isEmpty());
     }
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testBounds(){
+        emptyList.add(-10, 2);
+    }
+
 
 }
