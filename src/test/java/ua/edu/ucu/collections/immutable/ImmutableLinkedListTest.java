@@ -165,4 +165,8 @@ public class ImmutableLinkedListTest {
         ordinaryList.add(-1, 20);
     }
 
+    @Test
+    public void testEmpty() {
+        assertTrue(emptyList.isEmpty());
+    }
 }
